@@ -89,17 +89,21 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-  fizzbuzz.forEach(arr);
-  if(num/3){
-    arr.push("Fizz");
-  } else if(num/5){
-    arr.push("Buzz");
-  } else if(num/3 && num/5){
-    arr.push("Fizz Buzz");
-  } else {
-    num.push(arr);
-  }
+  let returnArray = [];
+  arr.forEach(num => {
+    if(num % 5 ===0 && num % 3 === 0) {
+      returnArray.push("Fizz Buzz");
+    } else if (num % 5 === 0) {
+      returnArray.push("Buzz");
+    } else if (num % 3 === 0) {
+      returnArray.push("Fizz");
+    } else {
+      returnArray.push(num);
+    }
+  });
+  return returnArray;
 };
+  
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
