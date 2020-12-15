@@ -21,7 +21,6 @@ Big 0 = O(1), O(n)
 ## Resources
 - I utilized my classmates for this
 - geeksforgeeks;
-URL code challenge 05 URL code challenge 06
 
 ## API
 insert- to add a new node
