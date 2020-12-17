@@ -46,3 +46,37 @@ class LinkedList {
         }
     }
 }
+
+function zipLists(list1, list2) {
+    var mergedList = new LinkedList();
+
+    var currentList1Node = list1.head;
+    var currentList2Node = list2.head;
+
+    while(currentList1Node !== null || currentList2Node !== null) {
+
+        if (currentList1Node !== null) {
+            mergedList.insert(currentList1Node);
+            currentList1Node = currentList1Node.next;
+        }
+
+        if (currentList2Node !== null) {
+            mergedList.insert(currentList2Node);
+            currentList2Node = currentList2Node.next;
+        }
+    }
+
+    return mergedList;
+}
+
+const list1 = new LinkedList();
+list1.insert(1);
+list1.insert(3);
+list1.insert(2);
+
+const list2 = new LinkedList();
+list2.insert(5);
+list2.insert(9);
+list2.insert(4);
+
+console.log(zipLists(list1, list2).toString());
