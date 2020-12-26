@@ -11,31 +11,29 @@ class Node {
 class Stack {
 
     constructor() {
-        top = new Node(-1, null);
-        head = top;
+        this.top = new Node(-1, null);
+        this.head = this.top;
     }
 
     push(newData) {
         const newNode = new Node(newData, null)
-        top.next = newNode;
-        top = newNode;
+        this.top.next = newNode;
+        this.top = newNode;
     }
 
     pop() {
-        if(top.data === -1) {
+        if(this.top.data === -1) {
             throw new Error('Stack is empty - cannot pop');  
         }  
 
-        const node = head;
+        let node = this.head;
         while(node.next.next !== null) {
             node = node.next;
         }
-        top = node;
+        this.top = node;
         node.next = null;
     }
-
-
 }
 
-
+module.exports = Stack;
 
