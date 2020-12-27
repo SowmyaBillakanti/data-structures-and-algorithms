@@ -80,3 +80,5 @@ list2.insert(9);
 list2.insert(4);
 
 console.log(zipLists(list1, list2).toString());
+
+module.exports = llzip;
