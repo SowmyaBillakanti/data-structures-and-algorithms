@@ -80,5 +80,37 @@ describe('tree testing', () => {
         bt.postOrder(outputArray);
 
         expect(outputArray).toStrictEqual(expectedArray);
+    }),
+
+    it('Can find max value in empty tree', () => {
+        let bt = new BinaryTree(null);
+        const maxValue = bt.findMaximumValue();
+        expect(maxValue).toBe(-100);
+    }),
+
+    it('Can find max value in single node tree', () => {
+        let childlessRoot = new BTNode(7, null, null);
+        let bt = new BinaryTree(childlessRoot);
+        const maxValue = bt.findMaximumValue();
+        expect(maxValue).toBe(7);
+    }),
+
+    it('Can find max value in simple tree', () => {
+        const node4 = new BTNode(4, null, null);
+        const node9 = new BTNode(9, node4, null);
+        const node5a = new BTNode(5, null, node9);
+        const node11 = new BTNode(11, null, null);
+        const node5b = new BTNode(5, null, null);
+        const node6 = new BTNode(6, node5b, node11);
+        const node2 = new BTNode(2, null, null);
+        const node7 = new BTNode(7, node2, node6);
+
+        let root = new BTNode(2, node7, node5a);
+
+        const bt = new BinaryTree(root);
+
+        const maxValue = bt.findMaximumValue();
+        
+        expect(maxValue).toBe(11);
     })
 });

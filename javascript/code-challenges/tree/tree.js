@@ -78,33 +78,28 @@ class BinaryTree {
         // visit
         // console.log(node);
 
-        if(root.data > highest) {
-            highest = root.data;
+        if(node.data > highest) {
+            highest = node.data;
         }
 
         return highest;
     }
 }
 
-const node4 = new BTNode(4, null, null);
-const node9 = new BTNode(9, node4, null);
-const node5a = new BTNode(5, null, node9);
-const node11 = new BTNode(11, null, null);
-const node5b = new BTNode(5, null, null);
-const node6 = new BTNode(6, node5b, node11);
-const node2 = new BTNode(2, null, null);
-const node7 = new BTNode(7, node2, node6);
+// const node4 = new BTNode(4, null, null);
+// const node9 = new BTNode(9, node4, null);
+// const node5a = new BTNode(5, null, node9);
+// const node11 = new BTNode(11, null, null);
+// const node5b = new BTNode(5, null, null);
+// const node6 = new BTNode(6, node5b, node11);
+// const node2 = new BTNode(2, null, null);
+// const node7 = new BTNode(7, node2, node6);
 
-let root = new BTNode(2, node7, node5a);
+// let root = new BTNode(2, node7, node5a);
 
-const bt = new BinaryTree(root);
+// const bt = new BinaryTree(root);
 
-console.log(bt.findMaximumValue());
-
-
-
-
-
+// console.log(bt.findMaximumValue());
 
 class BST {
 
