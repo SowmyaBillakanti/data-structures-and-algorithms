@@ -112,5 +112,47 @@ describe('tree testing', () => {
         const maxValue = bt.findMaximumValue();
         
         expect(maxValue).toBe(11);
+    }),
+
+    it('Can do breadth first traversal on empty tree', () => {
+        let nullRootNode = null;
+        let emptyBinaryTree = new BinaryTree(nullRootNode);
+        
+        let resultArray = [];
+        emptyBinaryTree.breadthFirst(resultArray);
+        
+        expect(resultArray.length).toBe(0);
+    }),
+
+    it('Can do breadth first traversal on a BT with single node', () =>  {
+        let data = 2;
+        let childlessRootNode = new BTNode(data, null, null);
+        let singleNodeBT = new BinaryTree(childlessRootNode);
+
+        let resultArray = [];
+        singleNodeBT.breadthFirst(resultArray);
+
+        expect(resultArray).toBe([data]);
+    }),
+    
+    it('Can return all values in breadth first traversal', () =>  {
+        const node4 = new BTNode(4, null, null);
+        const node9 = new BTNode(9, node4, null);
+        const node5a = new BTNode(5, null, node9);
+        const node11 = new BTNode(11, null, null);
+        const node5b = new BTNode(5, null, null);
+        const node6 = new BTNode(6, node5b, node11);
+        const node2 = new BTNode(2, null, null);
+        const node7 = new BTNode(7, node2, node6);
+
+        var expectedArray = [2, 7, 5, 2, 6, 9, 5, 11, 4];
+        let root = new BTNode(2, node7, node5a);
+
+        const bt = new BinaryTree(root);
+
+        let resultArray = [];
+        bt.breadthFirst(resultArray);
+
+        expect(resultArray).toBe(expectedArray);
     })
 });

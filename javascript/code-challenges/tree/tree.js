@@ -1,5 +1,8 @@
 'use strict';
 
+const stacksAndQueuesModule = require('../stacksAndQueues/stacks-and-queues');
+const Queue = stacksAndQueuesModule.Queue;
+
 class BTNode {
     constructor(data, leftNode, rightNode) {
         this.data = data;
@@ -84,22 +87,55 @@ class BinaryTree {
 
         return highest;
     }
+
+    breadthFirst(outputArray) {
+        const breadth = new Queue();
+        // console.log("Queue: " + breadth);
+
+        breadth.enqueue(this.treeRootNode);
+        // console.log("Enqueued root");
+
+        // console.log("Peeking...");
+        // console.log("Peeked value: " + breadth.peek().data);
+        // console.log("Entering while loop...");
+        while (breadth.peek()) {
+            let front = breadth.dequeue();
+            outputArray.push(front.data);
+            // console.log(front.data);
+
+            if(front.leftNode !== null) {
+                breadth.enqueue(front.leftNode);
+                // console.log("Enqueued left node: " + front.leftNode.data);
+            } 
+
+            if(front.rightNode !== null) {
+                breadth.enqueue(front.rightNode)
+                // console.log("Enqueued right node: " + front.rightNode.data);
+            }
+
+            // console.log("Peeking...");
+        }
+    }
 }
 
-// const node4 = new BTNode(4, null, null);
-// const node9 = new BTNode(9, node4, null);
-// const node5a = new BTNode(5, null, node9);
-// const node11 = new BTNode(11, null, null);
-// const node5b = new BTNode(5, null, null);
-// const node6 = new BTNode(6, node5b, node11);
-// const node2 = new BTNode(2, null, null);
-// const node7 = new BTNode(7, node2, node6);
 
-// let root = new BTNode(2, node7, node5a);
+const node4 = new BTNode(4, null, null);
+const node9 = new BTNode(9, node4, null);
+const node5a = new BTNode(5, null, node9);
+const node11 = new BTNode(11, null, null);
+const node5b = new BTNode(5, null, null);
+const node6 = new BTNode(6, node5b, node11);
+const node2 = new BTNode(2, null, null);
+const node7 = new BTNode(7, node2, node6);
 
-// const bt = new BinaryTree(root);
+let root = new BTNode(2, node7, node5a);
 
-// console.log(bt.findMaximumValue());
+const bt = new BinaryTree(root);
+
+const resultArray = [];
+bt.breadthFirst(resultArray);
+
+console.log(resultArray);
 
 class BST {
 
@@ -206,6 +242,24 @@ class BST {
 // }
 
 // console.log(bst.contains(node8));
+
+// For finding Maximum value
+
+// const node4 = new BTNode(4, null, null);
+// const node9 = new BTNode(9, node4, null);
+// const node5a = new BTNode(5, null, node9);
+// const node11 = new BTNode(11, null, null);
+// const node5b = new BTNode(5, null, null);
+// const node6 = new BTNode(6, node5b, node11);
+// const node2 = new BTNode(2, null, null);
+// const node7 = new BTNode(7, node2, node6);
+
+// let root = new BTNode(2, node7, node5a);
+
+// const bt = new BinaryTree(root);
+
+// console.log(bt.findMaximumValue());
+
 
 module.exports.BinaryTree = BinaryTree;
 module.exports.BTNode = BTNode;
