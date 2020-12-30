@@ -153,6 +153,6 @@ describe('tree testing', () => {
         let resultArray = [];
         bt.breadthFirst(resultArray);
 
-        expect(resultArray).toBe(expectedArray);
+        expect(resultArray).toStrictEqual(expectedArray);
     })
 });
