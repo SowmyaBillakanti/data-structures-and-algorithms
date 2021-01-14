@@ -34,7 +34,7 @@ function quickSortRecursive(arr, start, end) {
     quickSort(arr, index + 1, end);
 }
 
-
+module.exports = quickSortRecursive;
 // Testing code
 // array = [7, -2, 4, 1, 6, 5, 0, -4, 2]
 // quickSortRecursive(array, 0, array.length - 1)
