@@ -1,0 +1,15 @@
+{
+  "name": "repeated-word",
+  "version": "1.0.0",
+  "description": "First repeated word in a book.",
+  "main": "repeated-word.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}
